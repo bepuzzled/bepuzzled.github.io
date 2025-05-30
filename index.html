@@ -10,7 +10,7 @@
   .dygraph-label.dygraph-y2label,.dygraph-axis-label.dygraph-axis-label-y.dygraph-axis-label-y2 {
     color:green;
   }
-  .dygraph-label.dygraph-ylabel,.dygraph-axis-label.dygraph-axis-label-y.dygraph-axis-label-y {
+  .dygraph-label.dygraph-ylabel,.dygraph-axis-label.dygraph-axis-label-y {
     color:blue;
   }
   .invisible {
@@ -46,7 +46,7 @@ tempgraph = new Dygraph("graphdiv2", "temperatures.csv", {
     if (el.id==1) {
         var axis = document.querySelector('.dygraph-label.dygraph-ylabel');
         axis.classList.toggle('invisble');
-        var labels = document.querySelector('.dygraph-axis-label.dygraph-axis-label-y.dygraph-axis-label-y');
+        var labels = document.querySelector('.dygraph-axis-label.dygraph-axis-label-y');
         labels.classList.toggle('invisble');
     }
     
