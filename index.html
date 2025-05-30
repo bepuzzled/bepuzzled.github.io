@@ -10,12 +10,15 @@
   .dygraph-label.dygraph-y2label,.dygraph-axis-label.dygraph-axis-label-y.dygraph-axis-label-y2 {
     color:green;
   }
+  .dygraph-label.dygraph-ylabel,.dygraph-axis-label.dygraph-axis-label-y.dygraph-axis-label-y {
+    color:blue;
+  }
 </style>
 </head>
 
 <body>
 <div id="graphdiv2"
-  style="width:1000px; height:300px;"></div>
+  style="width:95vw; height:95vh;"></div>
 <script type="text/javascript">
 tempgraph = new Dygraph("graphdiv2", "temperatures.csv", {
   legend: 'always',
