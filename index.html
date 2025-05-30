@@ -38,15 +38,19 @@ tempgraph = new Dygraph("graphdiv2", "temperatures.csv", {
   function displaygraph(el) {
     tempgraph.setVisibility(el.id, el.checked);
     if (el.id==0) {
-        var axis = document.querySelector('.dygraph-label.dygraph-y2label');
-        var labels = document.querySelector('.dygraph-axis-label.dygraph-axis-label-y.dygraph-axis-label-y2');
+        var axis = document.querySelectorAll('.dygraph-label.dygraph-y2label');
+        var labels = document.querySelectorAll('.dygraph-axis-label.dygraph-axis-label-y.dygraph-axis-label-y2');
     }
     if (el.id==1) {
-        var axis = document.querySelector('.dygraph-label.dygraph-ylabel');
-        var labels = document.querySelector('.dygraph-axis-label.dygraph-axis-label-y');
+        var axis = document.querySelectorAll('.dygraph-label.dygraph-ylabel');
+        var labels = document.querySelectorAll('.dygraph-axis-label.dygraph-axis-label-y');
     }
-    (el.checked)?axis.classList.remove('invisble'):axis.classList.add('invisble');
-    (el.checked)?labels.classList.remove('invisble'):labels.classList.add('invisble');
+    axis.forEach((userItem) => {
+      (el.checked)?userItem.classList.remove('invisble'):userItem.classList.add('invisble');
+    })
+    labels.forEach((userItem) => {
+      (el.checked)?userItem.classList.remove('invisble'):userItem.classList.add('invisble');
+    })
   }
 
   function updategraph() {
