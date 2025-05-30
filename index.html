@@ -11,6 +11,23 @@ g = new Dygraph("graphdiv2", "temperatures.csv", {
   legend: 'always',
   title: 'Greenhouse',
   ylabel: 'Temperature (C)',
+  y2label: 'Humidity (%)',
+  series : {
+            'Humidity': {
+              axis: 'y2'
+            }
+  }
 });
+
+  function displaygraph(el) {
+    stockchart.setVisibility(el.id, el.checked);
+  }
 </script>
+<p><b>Display: </b>
+<input type=checkbox id=0 onClick="displaygraph(this)" checked>
+<label for="0"> Temperature</label>
+<input type=checkbox id=1 onClick="displaygraph(this)" checked>
+<label for="1"> Humidity</label>
+
+</p>
 </body></html>
