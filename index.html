@@ -21,7 +21,7 @@
 
 <body>
 <div id="graphdiv2"
-  style="width:90vw; height:80vh;"></div>
+  style="width:90vw; height:80vh; margin: 0 auto;"></div>
 <script type="text/javascript">
 tempgraph = new Dygraph("graphdiv2", "temperatures.csv", {
   legend: 'always',
@@ -40,20 +40,20 @@ tempgraph = new Dygraph("graphdiv2", "temperatures.csv", {
     if (el.id==0) {
         console.log("temperature?");
         var axis = document.querySelector('.dygraph-label.dygraph-y2label');
-        console.log(axis.classList);  
-        axis.classList.toggle('invisble');
+        console.log(axis.style.classList);  
+        axis.style.classList.toggle('invisble');
+        console.log(axis.style.classList);  
         var labels = document.querySelector('.dygraph-axis-label.dygraph-axis-label-y.dygraph-axis-label-y2');
-        console.log(labels.classList);  
-        labels.classList.toggle('invisble');
+        labels.style.classList.toggle('invisble');
     }
     if (el.id==1) {
         console.log("humidity?");
         var axis = document.querySelector('.dygraph-label.dygraph-ylabel');
-        console.log(axis.classList);  
-        axis.classList.toggle('invisble');
+        console.log(axis.classList.style); 
+        axis.style.classList.toggle('invisble');
+        console.log(axis.classList.style);
         var labels = document.querySelector('.dygraph-axis-label.dygraph-axis-label-y');
-        console.log(labels.classList);  
-        labels.classList.toggle('invisble');
+        labels.style.classList.toggle('invisble');
     }
     
   }
