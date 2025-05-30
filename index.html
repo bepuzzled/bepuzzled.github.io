@@ -13,12 +13,15 @@
   .dygraph-label.dygraph-ylabel,.dygraph-axis-label.dygraph-axis-label-y.dygraph-axis-label-y {
     color:blue;
   }
+  .invisible {
+    visibility:hidden;
+  }
 </style>
 </head>
 
 <body>
 <div id="graphdiv2"
-  style="width:95vw; height:95vh;"></div>
+  style="width:90vw; height:80vh;"></div>
 <script type="text/javascript">
 tempgraph = new Dygraph("graphdiv2", "temperatures.csv", {
   legend: 'always',
@@ -34,6 +37,19 @@ tempgraph = new Dygraph("graphdiv2", "temperatures.csv", {
 
   function displaygraph(el) {
     tempgraph.setVisibility(el.id, el.checked);
+    if (el.id==0) {
+        var axis = document.querySelector('.dygraph-label.dygraph-y2label');
+        axis.classList.toggle('invisble');
+        var labels = document.querySelector('.dygraph-axis-label.dygraph-axis-label-y.dygraph-axis-label-y2');
+        labels.classList.toggle('invisble');
+    }
+    if (el.id==1) {
+        var axis = document.querySelector('.dygraph-label.dygraph-ylabel');
+        axis.classList.toggle('invisble');
+        var labels = document.querySelector('.dygraph-axis-label.dygraph-axis-label-y.dygraph-axis-label-y');
+        labels.classList.toggle('invisble');
+    }
+    
   }
 
   function updategraph() {
