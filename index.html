@@ -22,6 +22,14 @@ tempgraph = new Dygraph("graphdiv2", "temperatures.csv", {
   function displaygraph(el) {
     tempgraph.setVisibility(el.id, el.checked);
   }
+
+  function updategraph() {
+  tempgraph.updateOptions({
+                  "file": "temperatures.csv"
+                });
+}
+
+setInterval(updategraph, 300000); // Calls updategraph() every 5 minutes)
 </script>
 <p><b>Display: </b>
 <input type=checkbox id=0 onClick="displaygraph(this)" checked>
