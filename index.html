@@ -46,10 +46,10 @@ tempgraph = new Dygraph("graphdiv2", "temperatures.csv", {
         var labels = document.querySelectorAll('.dygraph-axis-label.dygraph-axis-label-y');
     }
     axis.forEach((userItem) => {
-      (el.checked)?userItem.classList.remove('invisble'):userItem.classList.add('invisble');
+      userItem.classList.toggle('invisble');
     })
     labels.forEach((userItem) => {
-      (el.checked)?userItem.classList.remove('invisble'):userItem.classList.add('invisble');
+      userItem.classList.toggle('invisble');
     })
   }
 
