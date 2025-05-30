@@ -38,15 +38,21 @@ tempgraph = new Dygraph("graphdiv2", "temperatures.csv", {
   function displaygraph(el) {
     tempgraph.setVisibility(el.id, el.checked);
     if (el.id==0) {
+        console.log("temperature?");
         var axis = document.querySelector('.dygraph-label.dygraph-y2label');
+        console.log(axis.classList);  
         axis.classList.toggle('invisble');
         var labels = document.querySelector('.dygraph-axis-label.dygraph-axis-label-y.dygraph-axis-label-y2');
+        console.log(labels.classList);  
         labels.classList.toggle('invisble');
     }
     if (el.id==1) {
+        console.log("humidity?");
         var axis = document.querySelector('.dygraph-label.dygraph-ylabel');
+        console.log(axis.classList);  
         axis.classList.toggle('invisble');
         var labels = document.querySelector('.dygraph-axis-label.dygraph-axis-label-y');
+        console.log(labels.classList);  
         labels.classList.toggle('invisble');
     }
     
