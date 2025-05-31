@@ -23,7 +23,7 @@
 
 <body>
 <div id="graphdiv2"
-  style="width:90vw; height:80vh; margin: 0 auto;"></div>
+  style="width:95vw; height:85vh; margin: 0 auto;"></div>
 <script type="text/javascript">
 tempgraph = new Dygraph("graphdiv2", "temperatures.csv", {
   legend: 'always',
@@ -89,7 +89,7 @@ tempgraph = new Dygraph("graphdiv2", "temperatures.csv", {
 
 setInterval(updategraph, 300000); // Calls updategraph() every 5 minutes)
 </script>
-<p style="margin: 0 25;"><b>Display: </b>
+<p style="margin-left: 40px;"><b>Display: </b>
   <input type=checkbox id=0 onClick="displaygraph(this)" checked>
   <label for="0"> Temperature</label>
   <input type=checkbox id=1 onClick="displaygraph(this)" checked>
