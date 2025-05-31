@@ -7,13 +7,14 @@
 <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
 
 <style>
-  .dygraph-label.dygraph-y2label,.dygraph-axis-label.dygraph-axis-label-y.dygraph-axis-label-y2 {
+  .dygraph-label.dygraph-ylabel {
+    color: blue;
+  }
+  
+  .dygraph-label.dygraph-y2label {
     color: green;
   }
-  .dygraph-label.dygraph-ylabel,.dygraph-axis-label.dygraph-axis-label-y {
-    color: blue;
-    visibility: hidden;
-  }
+
   .invisible {
     visibility: hidden;
   }
@@ -39,34 +40,19 @@ tempgraph = new Dygraph("graphdiv2", "temperatures.csv", {
   }
 });
 
-      function formatTemperature(d) {
-        return Math.floor(d);
-      }
+  function formatTemperature(d) {
+    return Math.floor(d);
+  }
   
   function displaygraph(el) {
     tempgraph.setVisibility(el.id, el.checked);
-    if (el.id==0) {
-        var axis = document.querySelectorAll('.dygraph-label.dygraph-y2label');
-        var labels = document.querySelectorAll('.dygraph-axis-label.dygraph-axis-label-y.dygraph-axis-label-y2');
-    }
-    if (el.id==1) {
-        var axis = document.querySelectorAll('.dygraph-label.dygraph-ylabel');
-        var labels = document.querySelectorAll('.dygraph-axis-label.dygraph-axis-label-y');
-    }
-    console.log("axis->");
-    axis.forEach(node => {
+    
+    var axis = document.querySelectorAll('.dygraph-label.dygraph-ylabel');
+    axis.forEach((node) => {
       console.log(node);
-    });
-    console.log("labels->");
-    labels.forEach(node => {
-      console.log(node);
-    });
-    axis.forEach((userItem) => {
-      userItem.classList.toggle('invisble');
+      node.classList.toggle('invisble');
     })
-    labels.forEach((userItem) => {
-      userItem.classList.toggle('invisble');
-    })
+   
   }
 
   function updategraph() {
