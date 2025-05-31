@@ -53,7 +53,7 @@ tempgraph = new Dygraph("graphdiv2", "temperatures.csv", {
   function displaygraph(el) {
     tempgraph.setVisibility(el.id, el.checked);
     
-    labels = (el.id==0)?document.querySelectorAll('dygraph-axis-label-y2'):document.querySelectorAll('dygraph-axis-label-y1');
+    labels = (el.id==0)?document.querySelectorAll('.dygraph-axis-label-y2'):document.querySelectorAll('.dygraph-axis-label-y1');
     console.log(el.id);
     console.log(labels);
     labels.forEach(console.log);
