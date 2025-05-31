@@ -20,19 +20,22 @@
   }
   
   #container {
-    width: 100vw;
-    height: 100vh;
+    width: 95vw;
+    height: 85vh;
     position: relative;
   }
   
   #graphdiv,
-  #overlay {
-    width: 95vw;
-    height: 85vh;
+  #latestT {
     position: absolute;
-    margin: 0 auto;
+    margin: auto;
   }
-  #overlay {
+  #latestT {
+    font-size: x-large;
+    border-style: solid;
+    border-width: 2px;
+    border-color: black;
+    padding: 10;
     z-index: 10;
   }
 </style>
@@ -41,7 +44,7 @@
 <body>
 <div id="container">
 <div id="graphdiv"></div>
-<div id="overlay">25°C </div>
+<div id="latestT">25°C </div>
 <script type="text/javascript">
 tempgraph = new Dygraph("graphdiv", "temperatures.csv", {
   legend: 'always',
@@ -86,8 +89,8 @@ tempgraph = new Dygraph("graphdiv", "temperatures.csv", {
               }
   }
 });
-console.log("last temp:"+tempgraph.getValue(tempgraph.numRows()-1,1)+'°C');
-  document.getElementById("overlay").innerHTML=tempgraph.getValue(tempgraph.numRows()-1,1)+'°C';
+console.log("last temp:"+tempgraph.getValue(tempgraph.numRows(),1)+'°C');
+  document.getElementById("overlay").innerHTML=tempgraph.getValue(tempgraph.numRows(),1)+'°C';
  
   function displaygraph(el) {
     tempgraph.setVisibility(el.id, el.checked);
@@ -113,6 +116,5 @@ setInterval(updategraph, 300000); // Calls updategraph() every 5 minutes)
   <label for="0"> Temperature</label>
   <input type=checkbox id=1 onClick="displaygraph(this)" checked>
   <label for="1"> Humidity</label>
-
 </p>
 </body></html>
