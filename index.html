@@ -8,13 +8,14 @@
 
 <style>
   .dygraph-label.dygraph-y2label,.dygraph-axis-label.dygraph-axis-label-y.dygraph-axis-label-y2 {
-    color:green;
+    color: green;
   }
   .dygraph-label.dygraph-ylabel,.dygraph-axis-label.dygraph-axis-label-y {
-    color:blue;
+    color: blue;
+    visibility: hidden;
   }
   .invisible {
-    visibility:hidden;
+    visibility: hidden;
   }
 </style>
 </head>
@@ -30,11 +31,18 @@ tempgraph = new Dygraph("graphdiv2", "temperatures.csv", {
   y2label: 'Temperature (C)',
   series : {
             'Temperature': {
-              axis: 'y2'
+              axis: 'y2',
+              axisLabelFormatter: function formatTemperature(d) {
+                return Math.floor(d);
+              }
             }
   }
 });
 
+      function formatTemperature(d) {
+        return Math.floor(d);
+      }
+  
   function displaygraph(el) {
     tempgraph.setVisibility(el.id, el.checked);
     if (el.id==0) {
@@ -45,8 +53,14 @@ tempgraph = new Dygraph("graphdiv2", "temperatures.csv", {
         var axis = document.querySelectorAll('.dygraph-label.dygraph-ylabel');
         var labels = document.querySelectorAll('.dygraph-axis-label.dygraph-axis-label-y');
     }
-    console.log("axis: "+axis);
-    console.log("labels: "+labels);
+    console.log("axis->");
+    axis.forEach(node => {
+      console.log(node);
+    });
+    console.log("labels->");
+    labels.forEach(node => {
+      console.log(node);
+    });
     axis.forEach((userItem) => {
       userItem.classList.toggle('invisble');
     })
