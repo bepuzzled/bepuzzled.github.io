@@ -98,12 +98,19 @@ tempgraph = new Dygraph("graphdiv", "temperatures.csv", {
               }
   }
 });
+tempgraph.ready(function() {
+  updateLabel();
+});
 
- 
+  function updateLabel() {
+    console.log("numrows:"+tempgraph.numRows());
+    console.log("last temp:"+tempgraph.getValue(tempgraph.numRows()-1,1)+'°C');
+    document.getElementById("latestT").innerHTML=tempgraph.getValue(tempgraph.numRows()-1,1)+'°C';
+  }
+  
   function displaygraph(el) {
     tempgraph.setVisibility(el.id, el.checked);
-    console.log("last temp:"+tempgraph.numRows());
-    document.getElementById("latestT").innerHTML=tempgraph.getValue(tempgraph.numRows(),1)+'°C';
+
     labels = (el.id==0)?document.querySelectorAll('.dygraph-axis-label-y2'):document.querySelectorAll('.dygraph-axis-label-y1');
     labels.forEach((label) => {
       el.checked?label.classList.remove('invisible'):label.classList.add('invisible');
@@ -116,6 +123,7 @@ tempgraph = new Dygraph("graphdiv", "temperatures.csv", {
                   "dateWindow": [ Date.now() - 24 * 60 * 60 * 1000,
              Date.now() ]   
                 });
+   updateLabel();
 }
 
 setInterval(updategraph, 300000); // Calls updategraph() every 5 minutes)
