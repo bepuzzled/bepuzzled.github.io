@@ -34,6 +34,9 @@ tempgraph = new Dygraph("graphdiv2", "temperatures.csv", {
             'Temperature': {
               axis: 'y2',
               digitsAfterDecimal : 0
+            },
+            'Humidity': {
+              digitsAfterDecimal : 0
             }
   }
 });
@@ -41,10 +44,12 @@ tempgraph = new Dygraph("graphdiv2", "temperatures.csv", {
  
   function displaygraph(el) {
     tempgraph.setVisibility(el.id, el.checked);
-    axis = (el.id==0)?document.querySelectorAll('dygraph-axis-label-y2'):document.querySelectorAll('dygraph-axis-label-y1');
-    axis.forEach((node) => {
-      console.log(node);
-      node.classList.toggle('invisble');
+    
+    labels = (el.id==0)?document.querySelectorAll('dygraph-axis-label-y2'):document.querySelectorAll('dygraph-axis-label-y1');
+    console.log(labels);
+    labels.forEach((label) => {
+      console.log(label);
+      label.classList.toggle('invisble');
     })
   }
 
