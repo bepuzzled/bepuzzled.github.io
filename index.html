@@ -38,15 +38,19 @@ tempgraph = new Dygraph("graphdiv2", "temperatures.csv", {
   axes: {
               y: {
                 digitsAfterDecimal: 0,
-                strokeWidth: 0.0,
+                strokeWidth: 0.1,
                 drawPoints: true,
-                pointSize: 2,
-                highlightCircleSize: 4
+                pointSize: 1,
+                highlightCircleSize: 2
                 //valueRange: [0, 100]  
               },
               y2: {
                 // set axis-related properties here
-                digitsAfterDecimal: 0//,
+                digitsAfterDecimal: 0,
+                strokeWidth: 0.1,
+                drawPoints: true,
+                pointSize: 1,
+                highlightCircleSize: 2
                 //valueRange: [0, 45]  
               }
 
