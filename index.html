@@ -49,8 +49,8 @@
 
 <body>
 <div id="container">
-<div id="graphdiv"></div>
-<div id="latestT">25°C </div>
+<div id="graphdiv">
+
 <script type="text/javascript">
 tempgraph = new Dygraph("graphdiv", "temperatures.csv", {
   legend: 'always',
@@ -95,13 +95,12 @@ tempgraph = new Dygraph("graphdiv", "temperatures.csv", {
               }
   }
 });
-
+    console.log("last temp:"+tempgraph.getValue(tempgraph.numRows(),1)+'°C');
+    document.getElementById("latestT").innerHTML=tempgraph.getValue(tempgraph.numRows(),1)+'°C';
  
   function displaygraph(el) {
     tempgraph.setVisibility(el.id, el.checked);
-    console.log("last temp:"+tempgraph.getValue(tempgraph.numRows(),1)+'°C');
-    document.getElementById("latestT").innerHTML=tempgraph.getValue(tempgraph.numRows(),1)+'°C';
-    
+   
     labels = (el.id==0)?document.querySelectorAll('.dygraph-axis-label-y2'):document.querySelectorAll('.dygraph-axis-label-y1');
     labels.forEach((label) => {
       el.checked?label.classList.remove('invisible'):label.classList.add('invisible');
@@ -124,4 +123,7 @@ setInterval(updategraph, 300000); // Calls updategraph() every 5 minutes)
   <input type=checkbox id=1 onClick="displaygraph(this)" checked>
   <label for="1"> Humidity</label>
 </p>
+</div>
+<div id="latestT">25°C </div>
+</div>
 </body></html>
