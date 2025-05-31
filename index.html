@@ -18,14 +18,32 @@
   .invisible {
     visibility: hidden;
   }
+  
+  #container {
+    width: 100vw;
+    height: 100vh;
+    position: relative;
+  }
+  
+  #graphdiv,
+  #overlay {
+    width: 95vw;
+    height: 85vh;
+    position: absolute;
+    margin: 0 auto;
+  }
+  #overlay {
+    z-index: 10;
+  }
 </style>
 </head>
 
 <body>
-<div id="graphdiv2"
-  style="width:95vw; height:85vh; margin: 0 auto;"></div>
+<div id="container">
+<div id="graphdiv"></div>
+<div id="overlay">25°C </div>
 <script type="text/javascript">
-tempgraph = new Dygraph("graphdiv2", "temperatures.csv", {
+tempgraph = new Dygraph("graphdiv", "temperatures.csv", {
   legend: 'always',
   title: 'Greenhouse environmentals',
   ylabel: 'Humidity',
@@ -68,7 +86,8 @@ tempgraph = new Dygraph("graphdiv2", "temperatures.csv", {
               }
   }
 });
-
+console.log("last temp:"+tempgraph.getValue(tempgraph.numRows()-1,1)+'°C');
+  document.getElementById("overlay").innerHTML=tempgraph.getValue(tempgraph.numRows()-1,1)+'°C';
  
   function displaygraph(el) {
     tempgraph.setVisibility(el.id, el.checked);
