@@ -37,13 +37,13 @@ tempgraph = new Dygraph("graphdiv2", "temperatures.csv", {
   },
   axes: {
               y: {
-                digitsAfterDecimal: 0,
-                valueRange: [0, 100]  
+                digitsAfterDecimal: 0//,
+                //valueRange: [0, 100]  
               },
               y2: {
                 // set axis-related properties here
-                digitsAfterDecimal: 0,
-                valueRange: [0, 45]  
+                digitsAfterDecimal: 0//,
+                //valueRange: [0, 45]  
               }
 
   }
@@ -54,7 +54,9 @@ tempgraph = new Dygraph("graphdiv2", "temperatures.csv", {
     tempgraph.setVisibility(el.id, el.checked);
     
     labels = (el.id==0)?document.querySelectorAll('dygraph-axis-label-y2'):document.querySelectorAll('dygraph-axis-label-y1');
-     labels.forEach(console.log);
+    console.log(el.id);
+    console.log(labels);
+    labels.forEach(console.log);
     
     labels.forEach((label) => {
       console.log(label);
