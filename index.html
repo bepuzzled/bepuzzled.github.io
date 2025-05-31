@@ -37,6 +37,8 @@
     top: 50%;
     -webkit-transform: translateY(-50%);
     transform: translateY(-50%);
+    -webkit-transform: translateX(-50%);
+    transform: translateX(-50%);
     font-size: x-large;
     border-style: solid;
     border-width: 2px;
@@ -95,12 +97,12 @@ tempgraph = new Dygraph("graphdiv", "temperatures.csv", {
               }
   }
 });
-    console.log("last temp:"+tempgraph.getValue(tempgraph.numRows(),1)+'°C');
-    document.getElementById("latestT").innerHTML=tempgraph.getValue(tempgraph.numRows(),1)+'°C';
+
  
   function displaygraph(el) {
     tempgraph.setVisibility(el.id, el.checked);
-   
+    console.log("last temp:"+tempgraph.getValue(tempgraph.numRows(),1)+'°C');
+    document.getElementById("latestT").innerHTML=tempgraph.getValue(tempgraph.numRows(),1)+'°C';
     labels = (el.id==0)?document.querySelectorAll('.dygraph-axis-label-y2'):document.querySelectorAll('.dygraph-axis-label-y1');
     labels.forEach((label) => {
       el.checked?label.classList.remove('invisible'):label.classList.add('invisible');
