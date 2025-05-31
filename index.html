@@ -37,9 +37,8 @@ tempgraph = new Dygraph("graphdiv2", "temperatures.csv", {
   strokeWidth: 1.2,
   drawPoints: true,
   pointSize: 1.5,
-  animateBackgroundFade : true,
   highlightCircleSize: 3,
-  dateWindow: [ Date.now() - 48 * 60 * 60 * 1000,
+  dateWindow: [ Date.now() - 24 * 60 * 60 * 1000,
              Date.now() ],
   series : {
             'Temperature': {
