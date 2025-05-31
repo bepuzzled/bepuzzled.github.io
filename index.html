@@ -11,7 +11,7 @@
     color: blue;
   }
   
-  .dygraph-label.dygraph-y2label {
+  .dygraph-label.dygraph-y2label,.dygraph-axis-label-y2 {
     color: green;
   }
 
@@ -47,7 +47,7 @@ tempgraph = new Dygraph("graphdiv2", "temperatures.csv", {
   function displaygraph(el) {
     tempgraph.setVisibility(el.id, el.checked);
     
-    var axis = document.querySelectorAll('.dygraph-label.dygraph-ylabel');
+    var axis = document.querySelectorAll('dygraph-axis-label-y2');
     axis.forEach((node) => {
       console.log(node);
       node.classList.toggle('invisble');
