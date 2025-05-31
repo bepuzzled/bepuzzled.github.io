@@ -28,37 +28,44 @@
 tempgraph = new Dygraph("graphdiv2", "temperatures.csv", {
   legend: 'always',
   title: 'Greenhouse environmentals',
-  ylabel: 'Humidity (%)',
-  y2label: 'Temperature (C)',
+  ylabel: 'Humidity',
+  y2label: 'Temperature',
   showRangeSelector: true,
   rangeSelectorHeight: 30,
   rangeSelectorPlotStrokeColor: 'blue',
   rangeSelectorPlotFillColor: 'MediumSlateBlue',
+  strokeWidth: 1.2,
+  drawPoints: true,
+  pointSize: 1.5,
+  highlightCircleSize: 3
   series : {
             'Temperature': {
               axis: 'y2',
-              showInRangeSelector : true
+              showInRangeSelector : true,
+              valueFormatter: function(x) {
+                  return x+'°C';
+              }
+            },
+              'Humidity': {
+              valueFormatter: function(x) {
+                  return x+'%';
+              }
             },
   },
   axes: {
               y: {
                 digitsAfterDecimal: 0,
-                strokeWidth: 1.2,
-                drawPoints: true,
-                pointSize: 1.5,
-                highlightCircleSize: 3
-                //valueRange: [0, 100]  
+                axisLabelFormatter: function(x) {
+                  return x+'%';
+                }
               },
               y2: {
                 // set axis-related properties here
                 digitsAfterDecimal: 0,
-                strokeWidth: 1.2,
-                drawPoints: true,
-                pointSize: 1.5,
-                highlightCircleSize: 3
-                //valueRange: [0, 45]  
+                axisLabelFormatter: function(x) {
+                  return x+'°C';
+                }
               }
-
   }
 });
 
