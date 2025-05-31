@@ -45,6 +45,8 @@ tempgraph = new Dygraph("graphdiv2", "temperatures.csv", {
         var axis = document.querySelectorAll('.dygraph-label.dygraph-ylabel');
         var labels = document.querySelectorAll('.dygraph-axis-label.dygraph-axis-label-y');
     }
+    console.log("axis: "+axis);
+    console.log("labels: "+labels);
     axis.forEach((userItem) => {
       userItem.classList.toggle('invisble');
     })
@@ -61,11 +63,11 @@ tempgraph = new Dygraph("graphdiv2", "temperatures.csv", {
 
 setInterval(updategraph, 300000); // Calls updategraph() every 5 minutes)
 </script>
-<p><b>Display: </b>
-<input type=checkbox id=0 onClick="displaygraph(this)" checked>
-<label for="0"> Temperature</label>
-<input type=checkbox id=1 onClick="displaygraph(this)" checked>
-<label for="1"> Humidity</label>
+<p style="margin: 0 25;"><b>Display: </b>
+  <input type=checkbox id=0 onClick="displaygraph(this)" checked>
+  <label for="0"> Temperature</label>
+  <input type=checkbox id=1 onClick="displaygraph(this)" checked>
+  <label for="1"> Humidity</label>
 
 </p>
 </body></html>
