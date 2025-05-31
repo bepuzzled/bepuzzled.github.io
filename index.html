@@ -55,7 +55,7 @@ tempgraph = new Dygraph("graphdiv2", "temperatures.csv", {
     
     labels = (el.id==0)?document.querySelectorAll('.dygraph-axis-label-y2'):document.querySelectorAll('.dygraph-axis-label-y1');
     labels.forEach((label) => {
-      label.classList.toggle('invisible');
+      el.checked?label.classList.remove('invisible'):label.classList.add('invisible');
     })
   }
 
