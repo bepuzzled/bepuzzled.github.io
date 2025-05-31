@@ -30,6 +30,10 @@ tempgraph = new Dygraph("graphdiv2", "temperatures.csv", {
   title: 'Greenhouse environmentals',
   ylabel: 'Humidity (%)',
   y2label: 'Temperature (C)',
+  showRangeSelector: true,
+  rangeSelectorHeight: 30,
+  rangeSelectorPlotStrokeColor: 'yellow',
+  rangeSelectorPlotFillColor: 'lightyellow',
   series : {
             'Temperature': {
               axis: 'y2'
