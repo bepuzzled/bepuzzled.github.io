@@ -42,14 +42,6 @@ tempgraph = new Dygraph("graphdiv2", "temperatures.csv", {
             'Temperature': {
               axis: 'y2',
               showInRangeSelector : true,
-              valueFormatter: function(x) {
-                  return x+'°C';
-              }
-            },
-              'Humidity': {
-              valueFormatter: function(x) {
-                  return x+'%';
-              }
             },
   },
   axes: {
@@ -57,13 +49,19 @@ tempgraph = new Dygraph("graphdiv2", "temperatures.csv", {
                 digitsAfterDecimal: 0,
                 axisLabelFormatter: function(x) {
                   return x+'%';
+                },
+                valueFormatter: function(x) {
+                  return x.toPrecision(4)+'%';
                 }
               },
               y2: {
                 // set axis-related properties here
-                digitsAfterDecimal: 0,
+                //digitsAfterDecimal: 0,
                 axisLabelFormatter: function(x) {
-                  return x+'°C';
+                  return Math.floor(x)+'°C';
+                },
+                valueFormatter: function(x) {
+                    return x.toPrecision(4)+'°C';
                 }
               }
   }
