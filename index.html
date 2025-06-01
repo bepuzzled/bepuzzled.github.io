@@ -102,8 +102,8 @@ tempgraph = new Dygraph("graphdiv", "temperatures.csv", {
 });
 tempgraph.ready(function() {
   updateLabel();
-  container=document.getElementById("container")
-  container.requestFullscreen();
+  let elem = document.documentElement;
+  elem.requestFullscreen({ navigationUI: "show" });
 });
 
   function updateLabel() {
