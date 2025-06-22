@@ -60,8 +60,8 @@
 tempgraph = new Dygraph("graphdiv", "temperatures.csv", {
   legend: 'always',
   title: 'Greenhouse Environmentals',
-  ylabel: 'Humidity',
-  y2label: 'Temperature',
+  ylabel: 'Humidity (%)',
+  y2label: 'Temperature (°C)',
   showRangeSelector: true,
   rangeSelectorHeight: 30,
   rangeSelectorPlotStrokeColor: 'blue',
@@ -132,9 +132,9 @@ setInterval(updategraph, 300000); // Calls updategraph() every 5 minutes)
 </script>
 <p style="margin-left: 75px;"><b>Display: </b>
   <input type=checkbox id=0 onClick="displaygraph(this)" checked>
-  <label for="0"> Temperature</label>
+  <label for="0" style="color:DarkBlue;"> Temperature</label>
   <input type=checkbox id=1 onClick="displaygraph(this)" checked>
-  <label for="1"> Humidity</label>
+  <label for="1" style="color:DarkGreen;"> Humidity</label>
 </p>
 </div>
 <div id="latestT">25°C </div>
